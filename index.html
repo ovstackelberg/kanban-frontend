@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trello Clone</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>Trello Clone</h1>
+  </header>
+
+  <main class="board">
+    <section class="column" id="col-todo" data-status="todo">
+      <h2>Todo</h2>
+      <div class="cards" id="cards-todo"></div>
+      <button class="add-task-btn" data-status="todo">+ Add Task</button>
+    </section>
+
+    <section class="column" id="col-in_progress" data-status="in_progress">
+      <h2>In Progress</h2>
+      <div class="cards" id="cards-in_progress"></div>
+      <button class="add-task-btn" data-status="in_progress">+ Add Task</button>
+    </section>
+
+    <section class="column" id="col-done" data-status="done">
+      <h2>Done</h2>
+      <div class="cards" id="cards-done"></div>
+      <button class="add-task-btn" data-status="done">+ Add Task</button>
+    </section>
+  </main>
+
+  <!-- Create / Edit Task Modal -->
+  <div id="modal-overlay" class="modal-overlay hidden" role="dialog" aria-modal="true">
+    <div class="modal">
+      <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+
+      <!-- Detail view (shown when viewing an existing task) -->
+      <div id="modal-detail" class="hidden">
+        <div class="modal-field">
+          <label>Title</label>
+          <input type="text" id="detail-title" placeholder="Task title" />
+        </div>
+        <div class="modal-field">
+          <label>Status</label>
+          <select id="detail-status">
+            <option value="todo">Todo</option>
+            <option value="in_progress">In Progress</option>
+            <option value="done">Done</option>
+          </select>
+        </div>
+        <div class="modal-field">
+          <label>Description</label>
+          <div id="detail-description-rendered" class="markdown-body"></div>
+          <textarea id="detail-description" placeholder="Description (markdown supported)" rows="6"></textarea>
+          <button class="btn-secondary" id="toggle-edit-btn">Edit</button>
+        </div>
+        <div class="modal-actions">
+          <button class="btn-primary" id="save-task-btn">Save</button>
+          <button class="btn-danger" id="delete-task-btn">Delete</button>
+        </div>
+      </div>
+
+      <!-- Create view (shown when creating a new task) -->
+      <div id="modal-create" class="hidden">
+        <h3>New Task</h3>
+        <div class="modal-field">
+          <label>Title <span class="required">*</span></label>
+          <input type="text" id="create-title" placeholder="Task title" />
+        </div>
+        <div class="modal-field">
+          <label>Description</label>
+          <textarea id="create-description" placeholder="Description (markdown supported)" rows="6"></textarea>
+        </div>
+        <input type="hidden" id="create-status" />
+        <div class="modal-actions">
+          <button class="btn-primary" id="confirm-create-btn">Create</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
