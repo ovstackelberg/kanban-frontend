@@ -1,4 +1,4 @@
-const API = 'http://localhost:8001';
+const API = window.API_URL || 'http://localhost:8001';
 
 // ── API helpers ──────────────────────────────────────────────────────────────
 
