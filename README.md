@@ -1,6 +1,6 @@
-# Trello Clone – Frontend
+# Kanban Board – Frontend
 
-A lightweight Trello-style kanban board. Plain HTML/CSS/JS — no build step required.
+A lightweight kanban board. Plain HTML/CSS/JS — no build step required.
 
 ## Running locally
 
