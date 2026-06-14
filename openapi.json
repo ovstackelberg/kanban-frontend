@@ -1,12 +1,15 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "Trello Clone API",
+    "title": "Taskflow API",
     "version": "1.0.0"
   },
   "paths": {
     "/tasks": {
       "get": {
+        "tags": [
+          "tasks"
+        ],
         "summary": "Get Tasks",
         "description": "Get all tasks sorted by status (todo \u2192 in_progress \u2192 done), then by order.",
         "operationId": "get_tasks_tasks_get",
@@ -28,6 +31,9 @@
         }
       },
       "post": {
+        "tags": [
+          "tasks"
+        ],
         "summary": "Create Task",
         "description": "Create a new task. Order is auto-assigned if not provided (appended to end of column).",
         "operationId": "create_task_tasks_post",
@@ -67,6 +73,9 @@
     },
     "/tasks/{task_id}": {
       "put": {
+        "tags": [
+          "tasks"
+        ],
         "summary": "Update Task",
         "description": "Fully replace a task by ID. Order is auto-assigned if not provided.",
         "operationId": "update_task_tasks__task_id__put",
@@ -116,6 +125,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "tasks"
+        ],
         "summary": "Delete Task",
         "description": "Delete a task by ID.",
         "operationId": "delete_task_tasks__task_id__delete",
@@ -262,6 +274,13 @@
           "type": {
             "type": "string",
             "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
           }
         },
         "type": "object",
